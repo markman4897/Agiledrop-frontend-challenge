@@ -1,0 +1,36 @@
+@use "../abstracts" as *;
+
+html {
+  font-family: "Roboto", sans-serif;
+  color: $white;
+  font-size: $f-s-normal;
+  font-weight: $f-w-normal;
+  background: $black;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h1 {
+  font-size: $f-s-giant;
+  font-weight: $f-w-light;
+  padding: 0.4em 0 1em 0;
+
+  strong {
+    font-weight: $f-w-bold;
+  }
+}
+
+p {
+  color: $light;
+  line-height: $p-line-height;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}

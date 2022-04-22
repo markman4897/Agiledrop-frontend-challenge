@@ -1,0 +1,164 @@
+@use "../abstracts" as *;
+@use "../components" as *;
+
+// Bg picture title block (.block-top-content-header)
+// ==================================================
+
+#block-top-content-header {
+  background: rgba($tertiary, 0.3);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: darken;
+  width: 100%;
+}
+
+#challenge-home {
+  min-height: 38em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    @include subtitle;
+  }
+
+  a {
+    @include link-button-primary;
+  }
+}
+
+// Main content blocks (...)
+// =========================
+
+// (3) Latest news, Latest event, About me
+
+#block-adchallenge-content,
+#block-latest-event,
+#block-about-me {
+  padding: 6em max(20%, calc(50% - 35em));
+}
+
+// blue line below main H2s
+#block-adchallenge-content > h2,
+.content-right > h2,
+.content-left > h2 {
+  @include h2;
+}
+
+// Latest news (#block-adchallenge-content)
+
+#block-adchallenge-content {
+  .view-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+
+    @include m-lg {
+      flex-direction: row;
+      max-width: 100%;
+    }
+
+    .views-row {
+      @include flex-shrink-grow;
+      @include card;
+    }
+  }
+}
+
+// Latest event (#block-latest-event)
+
+#block-latest-event {
+  background: $tertiary;
+}
+
+#challenge-event {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+
+  @include m-xs-lg {
+    .img-left {
+      max-width: 30em;
+      margin: 0 auto;
+    }
+  }
+
+  @include m-lg {
+    flex-direction: row;
+
+    .img-left {
+      flex: 2;
+    }
+
+    .content-right {
+      flex: 3;
+    }
+  }
+}
+
+// About me (#block-about-me)
+
+#challenge-about-me {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+
+  @include m-xs-lg {
+    .img-right {
+      max-width: 30em;
+      margin: 0 auto;
+    }
+  }
+
+  @include m-lg {
+    flex-direction: row;
+    margin-top: 8em;
+    margin-bottom: 6em;
+
+    .img-right,
+    .content-left {
+      flex: 1;
+    }
+  }
+
+  .img-right {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+
+    &::before {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      background: $deco-square-1;
+      width: 55%;
+      height: 60%;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -40%);
+    }
+
+    &::after {
+      z-index: -1;
+      content: "";
+      display: block;
+      position: absolute;
+      background: $deco-square-2;
+      width: 30%;
+      height: 30%;
+      right: 0;
+      bottom: 0;
+      transform: translate(50%, 20%) rotate(45deg);
+    }
+
+    div {
+      overflow: hidden;
+
+      img {
+        transform: scale(1.9) translate(-5%, -9%);
+      }
+    }
+  }
+}

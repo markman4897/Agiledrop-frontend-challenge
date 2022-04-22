@@ -1,0 +1,27 @@
+@use "../abstracts" as *;
+@use "links" as *;
+
+@mixin card {
+  @include m-xs-lg {
+    article {
+      max-width: 30em;
+      margin: 0 auto;
+    }
+  }
+
+  h2 {
+    @include h3;
+  }
+
+  .createdDate {
+    color: $dark;
+    font-size: $f-s-small;
+    padding-bottom: 2em;
+  }
+
+  .node__links {
+    a {
+      @include link-read-more;
+    }
+  }
+}

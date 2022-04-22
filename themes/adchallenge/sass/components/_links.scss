@@ -1,0 +1,26 @@
+@use "../abstracts" as *;
+
+@mixin link-read-more {
+  @include reset-link;
+
+  position: relative;
+  font-weight: $f-w-bold;
+
+  $thickness: 0.22em;
+
+  &::after {
+    content: "";
+    position: absolute;
+    box-shadow: inset $thickness $thickness $secondary;
+    height: 0.8em;
+    width: 0.8em;
+    right: -1.1em;
+    bottom: 0.1em;
+    transform: rotate(135deg);
+    transition: box-shadow $t-normal;
+  }
+
+  &:hover::after {
+    box-shadow: inset $thickness $thickness $primary;
+  }
+}

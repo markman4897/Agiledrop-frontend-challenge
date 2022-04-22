@@ -1,0 +1,117 @@
+@use "../abstracts" as *;
+@use "../components" as *;
+
+// Fixed top row (header)
+// ======================
+
+header {
+  padding: 0.8em;
+  @include m-md {
+    background: rgba($black, 0.6);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 6em;
+    padding: 1.2em 0;
+    z-index: 1; // H2 "Latest News" goes above it otherwise
+  }
+
+  .region-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include m-md {
+      flex-direction: row;
+      justify-content: space-around;
+      height: 100%;
+    }
+
+    a {
+      height: 100%;
+    }
+  }
+}
+
+#block-adchallenge-branding {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  .site-logo > img {
+    height: 100%;
+    width: auto;
+  }
+
+  .site-slogan {
+    font-size: $f-s-big;
+  }
+}
+
+#block-adchallenge-main-menu {
+  display: flex;
+  align-items: center;
+
+  ul {
+    display: flex;
+    gap: 3em;
+  }
+
+  a {
+    @include reset-link;
+
+    position: relative;
+    font-weight: $f-w-bold;
+    text-transform: uppercase;
+
+    &.active-link::after {
+      content: "";
+      position: absolute;
+      border-bottom: solid $secondary $underline;
+      width: 100%;
+      left: 0;
+      bottom: -0.6em;
+    }
+  }
+}
+
+// Footer area (footer)
+// ====================
+
+footer {
+  .region-footer {
+    background: $tertiary;
+    ul {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+    }
+  }
+}
+
+#block-footer {
+  padding: 0.6em 0;
+  color: $dark;
+
+  a {
+    @include reset-link;
+  }
+}
+
+#block-footercreated {
+  background: $agile-footer;
+  font-size: $f-s-small;
+  text-align: center;
+  padding: 0.2em 0;
+
+  a {
+    @include reset-link;
+
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+}
